@@ -24,7 +24,7 @@ class Hamkar(models.Model):
     market_name = models.CharField(
         null=False, max_length=100, verbose_name="نام فروشگاه"
     )
-    city = models.CharField(null=False, max_length=20, verbose_name="نام شهر")
+    city = models.CharField(null=False, max_length=100, verbose_name="نام شهر")
     mobile_tel = models.BigIntegerField(
         validators=[MaxValueValidator(9999999999), MinValueValidator(1000000000)],
         null=False,
@@ -49,7 +49,7 @@ class Hamkar(models.Model):
     )
 
     def __str__(self):
-        return "{}-0{}".format(self.name, self.mobile_tel)
+        return "{} {}-0{}".format(self.name, self.l_name, self.mobile_tel)
 
 
 # @receiver(pre_delete, sender=market)
