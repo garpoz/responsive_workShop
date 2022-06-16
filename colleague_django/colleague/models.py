@@ -25,12 +25,13 @@ class Hamkar(models.Model):
         null=False, max_length=100, verbose_name="نام فروشگاه"
     )
     city = models.CharField(null=False, max_length=100, verbose_name="نام شهر")
+    user_name = models.CharField(null=False, max_length=100, verbose_name="نام کاربری-انگلیسی وارد کنید")
     mobile_tel = models.BigIntegerField(
         validators=[MaxValueValidator(9999999999), MinValueValidator(1000000000)],
         null=False,
         unique=True,
         primary_key=True,
-        verbose_name="شماره موبایل",
+        verbose_name="شماره موبایل-گذرواژه",
     )
     market_tell = models.BigIntegerField(
         validators=[MaxValueValidator(9999999999), MinValueValidator(1000000000)],
@@ -49,7 +50,7 @@ class Hamkar(models.Model):
     )
 
     def __str__(self):
-        return "{} {}-0{}".format(self.name, self.l_name, self.mobile_tel)
+        return "{} {}-{}-0{}".format(self.name, self.l_name, self.city, self.mobile_tel)
 
 
 # @receiver(pre_delete, sender=market)
