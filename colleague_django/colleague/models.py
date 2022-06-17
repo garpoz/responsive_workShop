@@ -25,7 +25,7 @@ class Hamkar(models.Model):
         null=False, max_length=100, verbose_name="نام فروشگاه"
     )
     city = models.CharField(null=False, max_length=100, verbose_name="نام شهر")
-    user_name = models.CharField(null=False, max_length=100, verbose_name="نام کاربری-انگلیسی وارد کنید")
+    user_name = models.CharField(unique=True, null=False, max_length=100, verbose_name="نام کاربری-انگلیسی وارد کنید")
     mobile_tel = models.BigIntegerField(
         validators=[MaxValueValidator(9999999999), MinValueValidator(1000000000)],
         null=False,
@@ -37,7 +37,7 @@ class Hamkar(models.Model):
         validators=[MaxValueValidator(9999999999), MinValueValidator(1000000000)],
         null=False,
         unique=True,
-        verbose_name="تلفن ثابت",
+        verbose_name="تلفن ثابت با پیش شماره",
     )
     level = models.CharField(
         max_length=20, choices=SEMESTER_CHOICES, default="1", verbose_name="سطح دسترسی"
