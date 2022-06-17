@@ -11,6 +11,7 @@ sample/
 # Distribution / packaging
 .Python
 colleague_django/colleague/migrations/
+colleague_django/home/
 build/
 develop-eggs/
 dist/
