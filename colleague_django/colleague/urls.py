@@ -4,8 +4,9 @@
 # -*- coding: utf-8 -*-
 
 from django.urls import path,re_path
-from .views import index
+from .views import index, market
 
 urlpatterns=[
-    path('',index,name='index')
+    path('',index,name='index'),
+    re_path(r'^market$',market,name='market'),
 ]

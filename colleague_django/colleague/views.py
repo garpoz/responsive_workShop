@@ -4,7 +4,8 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render, HttpResponse, redirect
-from .models import Hamkar
+from django.http import HttpResponseRedirect
+from .models import Hamkar, Mahsool
 import socket, sqlite3
 import requests
 import os
@@ -29,3 +30,9 @@ def index(request):
             request,
             "colleague/index.html",
         )
+
+def market(request):
+    return render(
+        request,
+        "colleague/market.html",
+    )

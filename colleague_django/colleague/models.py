@@ -52,7 +52,9 @@ class Hamkar(models.Model):
     def __str__(self):
         return "{} {}-{}-0{}".format(self.name, self.l_name, self.city, self.mobile_tel)
 
+class Mahsool(models.Model):
+    pass
 
-# @receiver(pre_delete, sender=market)
+# @receiver(pre_delete, sender=Mahsool)
 # def mymodel_delete(sender, instance, **kwargs):
 #    instance.img.delete(False)
