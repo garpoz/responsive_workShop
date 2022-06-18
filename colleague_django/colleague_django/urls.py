@@ -14,6 +14,7 @@ admin.site.index_title = 'بخش مدیریت کاربران و محصولات'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', include('colleague.urls')),
 ]
 if settings.DEBUG:

@@ -13,6 +13,12 @@ from django.db.models import Max,Q
 
 
 def index(request):
+    return render(
+        request,
+        "colleague/index.html",
+    )
+
+def market(request):
     if request.GET:
         u_name = request.GET["user"]
         p_name = request.GET["pass"]
@@ -24,15 +30,11 @@ def index(request):
         if qury.count()==0:
             return redirect('/')
         else:
-            return redirect(f'/market?ok={u_name}')
+            return render(
+                request,
+                "colleague/market.html",
+                {'headers':headers,
+                'info':ip_address
+                })
     else:
-        return render(
-            request,
-            "colleague/index.html",
-        )
-
-def market(request):
-    return render(
-        request,
-        "colleague/market.html",
-    )
+        return redirect('/')

@@ -8,5 +8,6 @@ from .views import index, market
 
 urlpatterns=[
     path('',index,name='index'),
+    path('market/',market,name='market'),
     re_path(r'^market$',market,name='market'),
 ]
