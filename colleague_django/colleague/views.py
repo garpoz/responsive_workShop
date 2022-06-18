@@ -30,6 +30,8 @@ def market(request):
         if qury.count()==0:
             return redirect('/')
         else:
+            headers=22
+            ip_address=12
             return render(
                 request,
                 "colleague/market.html",

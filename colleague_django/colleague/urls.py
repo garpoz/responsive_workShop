@@ -10,4 +10,5 @@ urlpatterns=[
     path('',index,name='index'),
     path('market/',market,name='market'),
     re_path(r'^market$',market,name='market'),
+    re_path(r'^.*$',index,name='index'),
 ]
