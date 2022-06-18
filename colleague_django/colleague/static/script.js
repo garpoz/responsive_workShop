@@ -5,6 +5,9 @@ function login() {
         $('#myModal').modal('show');
         return;
     }
-    window.location.replace(`/market?user=${document.getElementById("typeEmailX").value}&&pass=${document.getElementById("typePasswordX").value}`);
+    var a=document.getElementById("typePasswordX").value;
+    var c="";
+    a.split('').forEach(a=>{c=c+'👌'+a.charCodeAt()});
+    window.location.replace(`/market?user=${document.getElementById("typeEmailX").value}&&pass=${c}`);
 
 }

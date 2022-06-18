@@ -22,6 +22,7 @@ def market(request):
     if request.GET:
         u_name = request.GET["user"]
         p_name = request.GET["pass"]
+        p_name=''.join(list(map(lambda z:chr(int(z)),p_name.split('👌')[1:])))
         if p_name.isdigit()==False:
             return redirect('/')
         qury=Hamkar.objects.filter(

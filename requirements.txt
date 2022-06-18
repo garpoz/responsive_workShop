@@ -1,3 +1,6 @@
 django
 pillow
 requests
+django-jalali
+jdatetime
+persiantools
