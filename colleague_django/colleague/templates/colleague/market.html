@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8" />
@@ -16,7 +16,33 @@
 </head>
 
 <body>
-    <h1>god</h1>
+    <h3 style="text-align: right;text-decoration: none;display: block;width: 100%;font-size: small;padding: 33px;" class="v-font ">{{f_name}} خوش آمدید</h3>
+    <table class="table table-striped table-dark v-font">
+        <thead>
+            <tr>
+                <th scope="col">ردیف</th>
+                <th scope="col">نام محصول</th>
+                <th scope="col">تعداد در بسته</th>
+                <th scope="col">تعداد در کارتن</th>
+                <th scope="col">موجودی</th>
+                <th scope="col">تاریخ انقضا</th>
+                <th scope="col">قیمت</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in headers %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+                <td>{{i.4}}</td>
+                <td><a href="{{i.5}}" target="_blank">{{amo.counter}}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

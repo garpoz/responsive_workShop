@@ -3,6 +3,7 @@
 # garpozir@gmail.com
 # -*- coding: utf-8 -*-
 
+from colleague_django.settings import BASE_DIR
 from django.shortcuts import render, HttpResponse, redirect
 from django.http import HttpResponseRedirect
 from .models import Hamkar, Mahsool
@@ -31,13 +32,26 @@ def market(request):
         if qury.count()==0:
             return redirect('/')
         else:
-            headers=22
-            ip_address=12
+            f_name=qury[0].name+' '+qury[0].l_name
+            you_level=qury[0].level
+            conn = sqlite3.connect(f"{BASE_DIR}/db.sqlite3")
+            cur = conn.cursor()
+            cur.execute(f"select name,num_pack,num_box,invent,date_time,url,mony{you_level} from colleague_mahsool;")
+            headers = cur.fetchall()
+            conn.close()
+            lst=[]
+            for m in headers:
+                amo=m[6]
+                txt = '{pr:,}'
+                amo=txt.format(pr=amo)
+                lst.append(m)
+                #lst.append(amo)
             return render(
                 request,
                 "colleague/market.html",
                 {'headers':headers,
-                'info':ip_address
+                 'amo':lst,
+                'f_name':f_name
                 })
     else:
         return redirect('/')
