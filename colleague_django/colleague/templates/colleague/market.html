@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fa" dir="rtl">
 
 <head>
     <meta charset="UTF-8" />
@@ -26,7 +26,7 @@
                 <th scope="col">تعداد در کارتن</th>
                 <th scope="col">موجودی</th>
                 <th scope="col">تاریخ انقضا</th>
-                <th scope="col">قیمت</th>
+                <th scope="col">قیمت ریال</th>
             </tr>
         </thead>
         <tbody>
@@ -38,11 +38,12 @@
                 <td>{{i.2}}</td>
                 <td>{{i.3}}</td>
                 <td>{{i.4}}</td>
-                <td><a href="{{i.5}}" target="_blank">{{amo.counter}}</a></td>
+                <td><a href="{{i.5}}" target="_blank">{{i.6}}</a></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <button class="btn btn-primary v-font" onclick="window.print()">چاپ سند</button>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

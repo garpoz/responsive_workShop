@@ -4,6 +4,8 @@
 # -*- coding: utf-8 -*-
 
 from colleague_django.settings import BASE_DIR
+from persiantools.jdatetime import JalaliDate
+import datetime
 from django.shortcuts import render, HttpResponse, redirect
 from django.http import HttpResponseRedirect
 from .models import Hamkar, Mahsool
@@ -41,16 +43,21 @@ def market(request):
             conn.close()
             lst=[]
             for m in headers:
+                m=list(m)
+                date=m[4]
+                date=date.split(" ")[0]
+                date=JalaliDate.to_jalali(int(str(date.split('-')[0])),int(str(date.split('-')[1])),int(str(date.split('-')[2])))
+                m[4]=date
                 amo=m[6]
                 txt = '{pr:,}'
                 amo=txt.format(pr=amo)
+                m[6]=amo
                 lst.append(m)
                 #lst.append(amo)
             return render(
                 request,
                 "colleague/market.html",
-                {'headers':headers,
-                 'amo':lst,
+                {'headers':lst,
                 'f_name':f_name
                 })
     else:
