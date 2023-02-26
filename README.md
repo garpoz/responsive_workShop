@@ -1,2 +1,2 @@
 # responsive_workShop
-responsive_workShop: Django
+responsive_workShop: Django_3
